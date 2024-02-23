@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #66098086;
+}
+
+.container{
+    position: relative;
+    background: #030b1aed;
+    /* min-height: 500px; */
+    border-radius: 20px;
+    border-top-left-radius: 225px;
+    border-top-right-radius: 225px;
+    border: 2px solid goldenrod;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.75),
+    10px 10px 70px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clock{
+     position: relative;
+     width: 450px;
+     height: 450px;
+     background: #1f0826d5 ;
+     border-radius: 50%;
+     border: 2px solid silver;
+     box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.5),
+     inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+     inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+     inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 30px;
+}
+
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #2f363e;
+    border: 4px solid #aaa1a1;
+    border-radius: 50%;
+    z-index: 1000000;
+}
+
+.clock span{
+    position: absolute;
+    inset: 20px;
+    color: #fff;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+    
+}
+
+.clock span b{
+    font-size: 2em;
+    opacity: 0.25;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+
+}
+
+.circle{
+    position: absolute;
+    width: calc(22px * var(--i));
+    height: calc(22px *var(--i));
+    border: 2px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.circle i{
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    border-radius: 50%;
+    background: var(--clr);
+    opacity: 0.75;
+    transform-origin: bottom;
+    transform: scaleY(0.9);
+}
+
+circle:nth-child(1) i{
+    width: 2px;
+}
+circle:nth-child(2) i{
+    width: 6px;
+}
+
+
+.circle14{
+    /* border: 3px dotted green; */
+}
+.circle10{
+    z-index: 9;
+    /* border: 3px dotted blue; */
+}
+.circle6{
+    z-index: 8;/
+    /* border: 3px dotted red; */
+}
+
+.circle::before{
+    content: '';
+    position: absolute;
+    top: -6.5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--clr);
+    box-shadow: 0 0 10px var(--clr),
+    0 0 60px var(--clr);
+
+}
+
+
+/* digital clock  */
+#time{
+    margin-bottom: 40px;
+    display: flex;
+    padding: 10px 20px;
+    font-size: 2em;
+    font-weight: 600;
+    border: 2px solid rgba(17, 5, 31, 0.9);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#time div{
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after{
+    content: ':';
+    position: absolute;
+    right: -4px;
+}
+
+#time div:last-child{
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+#time div:nth-child(2)::after{
+    animation: animate 1s steps(1) infinite;
+}
+
+
+@keyframes animate{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+}
